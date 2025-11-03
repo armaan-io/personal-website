@@ -1,0 +1,98 @@
+/* RESPONSIVE DESIGN */
+
+/* Large tablets and below (≤ 1024px) */
+@media (max-width: 1024px) {
+    .page-links {
+        font-size: 2rem;
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 6rem;
+    }
+
+    #about p {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        column-gap: 16px;
+    }
+}
+
+/* Tablets and small laptops (≤ 768px) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(6, 1fr);
+        padding: 0 1rem;
+    }
+
+    nav {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        height: auto;
+    }
+
+    .page-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        grid-column: 1 / -1;
+        height: auto;
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+
+    #about {
+        grid-column: 1 / -1;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    #about p {
+        font-size: 1.1rem;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+    .page-links {
+        font-size: 1.2rem;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 9vw, 4rem);
+    }
+
+    #about h4 {
+        font-size: 1.2rem;
+    }
+
+    #about p {
+        font-size: 1rem;
+        line-height: 160%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+}

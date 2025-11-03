@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,35 +11,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Langar&family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <div class="container">
-        <div class="test">
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
 
-        </div>
-        <nav >
             <div class="page-links">
                 <a href="#about">about</a>
-                <a href="" target="_blank">blog</a>
+                <a href="https://armaan-io.github.io/Blog" target="_blank">blog</a>
                 <a href="https://github.com/armaan-io" target="_blank">projects</a>
                 <a href="#contact">contact</a>
             </div>
         </nav>
-        <div class="hero">
-            <h1 style="white-space: nowrap;">
-                <span class="name-eng">Armaan</span>
-                <span>/</span>
-                <span class="name-pbi">ਅਰਮਾਨ</span>
-            </h1>
-        </div>
-        <div id="about">
+
+        <header class="hero">
+            <div class="hero-text">
+                <h1 style="white-space: nowrap;">
+                    <span class="name-eng">Armaan</span>
+                    <span class="slash">/</span>
+                    <span class="name-pbi">ਅਰਮਾਨ</span>
+                </h1>
+            </div>
+        </header>
+
+        <section id="about">
             <h4>A jack of many trades.</h4>
             <p>
                 I love physics, photography, programming, cars & playing guitar among other things. Recently I got into writing and astronomy.
                 Most of all, I love learning and getting into new things. You can always find me with a new hobby/interest and a load of enthusiasm.
             </p>
-        </div>
+        </section>
+
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>Reach out or connect with me through my socials or mail.</p>
+
+            <div class="contact-links">
+                <a href="https://github.com/armaan-io" target="_blank">GitHub ↗</a>
+                <a href="#" class="copy-discord" data-username="armaan.here">Discord ↗</a>
+                <a href="https://signal.me/#eu/qZHc09ibRTwwmmvVfJ84-uPQOiO0aetsPtoDW51iQO2dHFQgkiFGAZJDTSWYFmzX" target="_blank">Signal ↗</a>
+                <a href="mailto:social.myth624@simplelogin.fr" target="_blank">Mail ↗</a>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <div>
+            <p>Hack Club ysws</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

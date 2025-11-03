@@ -18,3 +18,8 @@ Coming to the layout/structure, it needs to play host to My Projects, My Blog/Jo
 I actually did something a bit different, then redid that things because it was buggy and didn't look that nice. It's still a WIP, but its actually halfway decent now. 
 
 I spent a lot of time learning design and it was a pretty fun learning experience. Hopefully the desing will keep improving and evolving as I do.
+
+## Update (03/11/2025):
+It is now responsive, at least more than it was before, and can be viewed on mobile devices. I have also added Contact links and polished the css a little. 
+
+thinking on adding some photo/sticker showreel in the future, also want to add some Hack Club elements (they are the reason I built this site!). 

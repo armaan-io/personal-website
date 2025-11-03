@@ -1,24 +1,18 @@
-/* ROOT */
+/* style.css */
 
 :root{
     --color-primary: hsl(0, 0%, 95%);
     --color-secondary: hsl(0, 0%, 1%);
-    --color-tertiary: hsl(138, 66%, 40%);
-    --color-accent: hsl(318, 70%, 50%);
-}
-
-
-/* DARK */
+    --color-tertiary: hsl(0, 0%, 90%);
+    --color-accent: hsl(138, 66%, 40%);
+} 
 
 .dark {
-    --color-primary: hsl(0, 0%, 5%);
+    --color-primary: hsl(0, 0%, 7%);
     --color-secondary: hsl(0, 0%, 95%);
-    --color-tertiary: hsl(138, 66%, 60%);
-    --color-accent: hsl(318, 70%, 50%);
-}
-
-
-/* GENERAL */
+    --color-tertiary: hsl(0, 0%, 2%);
+    --color-accent: hsl(138, 66%, 60%);
+} 
 
 * {
     margin: 0;
@@ -35,37 +29,33 @@ body {
 html {
     scroll-behavior: smooth;
     overflow-y: auto;
-}
+} 
 
 a {
     color: var(--color-secondary);
     text-decoration: none;
-}
+} 
 
 a:hover {
-    color: var(--color-tertiary);
-    text-decoration: underline;
-    text-underline-offset: 0.8rem;
-}
-
-
-/* CONTAINER */
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.8rem;
+} 
 
 .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 24px;
     overflow: auto;
-}
-
-
-/* NAV */
+} 
 
 nav {
-    grid-column: 8 / -1;
+    grid-column: 8 / -2;
     grid-row: 1 / auto;
     padding-top: 1rem;
     height: 25vh;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .page-links {
@@ -74,13 +64,44 @@ nav {
     gap: 2.5rem;
 }
 
-/* HERO */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 200;
+  margin-left: 1rem;
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
 
 .hero {
     grid-column: 2 / -1;
     grid-row: 2 / auto;
     align-content: end;
     height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 .hero h1 {
@@ -93,14 +114,35 @@ nav {
 
 .name-pbi {
     font-family: 'Langar';
-    color: var(--color-tertiary);
+    color: var(--color-accent);
 }
 
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(4rem, 20vw, 5rem);
+  }
 
-/* MAIN */
+  .hero .name-eng, .hero .slash, .hero .name-pbi {
+    display: inline;
+  }
+
+  .hero .slash::after {
+    content: "";
+    display: block;
+  }
+
+  .hero .name-pbi {
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .hero, #about {
+    text-align: left;
+  }
+}
 
 #about {
-    grid-column: 2 / 8;
+    grid-column: 2 / -2;
     grid-row: 3 / auto;
     align-content: center;
 }
@@ -117,15 +159,84 @@ nav {
     line-height: 150%;
     margin-top: 2rem;
     word-spacing: 15%;
-}
-
+} 
 
 #contact {
-    grid-column: 2 / -1;
+    grid-column: 2 / -2;
     grid-row: 4 / auto;
     margin-top: 6rem;
 }
 
 #contact h1 {
     font-size: 3rem;
+}
+
+#contact p {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin-top: 2rem;
+    word-spacing: 15%;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-links a {
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+footer {
+    background-color: var(--color-tertiary);
+    margin-top: 3rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  nav {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .page-links {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+    border: 1px solid var(--color-tertiary);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.1);
+    display: none;
+  }
+
+  .page-links.active {
+    display: flex;
+    animation: fadeIn 0.25s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+   .contact-links a {
+    gap: 1rem;
+    font-size: 1.5rem;
+  }
 }
