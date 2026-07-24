@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARMAAN</title>
 
-    <link rel="stylesheet" href="style.css?v=27">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.dataset.theme = savedTheme;
+            }
+        } catch {
+            // System preference remains the fallback when storage is unavailable.
+        }
+    </script>
+    <link rel="stylesheet" href="style.css?v=28">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +24,10 @@
 </head>
 <body>
     <div class="container">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-toggle-moon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-sun" aria-hidden="true">☀</span>
+        </button>
         <nav>
             <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="site-links" aria-expanded="false">
                 <span class="bar"></span>
@@ -83,6 +97,6 @@
         <span>&copy; 2026</span>
     </footer>
 
-    <script src="script.js?v=25"></script>
+    <script src="script.js?v=28"></script>
 </body>
 </html>
