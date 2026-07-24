@@ -10,6 +10,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameSwitch = document.querySelector('.name-switch');
     const heroCarouselList = document.querySelector('.hero-carousel-list');
     const punjabClock = document.getElementById('punjab-clock');
+    const themeToggle = document.querySelector('.theme-toggle');
+
+    if (themeToggle) {
+        const root = document.documentElement;
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const isDarkTheme = () => root.dataset.theme
+            ? root.dataset.theme === 'dark'
+            : systemTheme.matches;
+        const updateThemeToggle = () => {
+            const isDark = isDarkTheme();
+            themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+            themeToggle.setAttribute('aria-pressed', isDark.toString());
+        };
+
+        themeToggle.addEventListener('click', () => {
+            root.dataset.theme = isDarkTheme() ? 'light' : 'dark';
+            try {
+                localStorage.setItem('theme', root.dataset.theme);
+            } catch {
+                // The applied theme still works when persistence is unavailable.
+            }
+            updateThemeToggle();
+        });
+
+        systemTheme.addEventListener('change', () => {
+            if (!root.dataset.theme) updateThemeToggle();
+        });
+        updateThemeToggle();
+    }
 
     if (heroCarouselList) {
         const copies = 3;
