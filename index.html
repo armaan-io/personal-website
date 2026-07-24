@@ -6,66 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARMAAN</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=27">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Langar&family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Newsreader:opsz@6..72&family=Noto+Serif+Gurmukhi:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <nav>
-            <div class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="site-links" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
 
-            <div class="page-links">
-                <a href="#about">about</a>
-                <a href="https://armaan-io.github.io/Blog" target="_blank">blog</a>
-                <a href="https://github.com/armaan-io" target="_blank">projects</a>
-                <a href="#contact">contact</a>
+            <div class="page-links" id="site-links">
+                <a href="https://armaan-io.github.io/blog/" target="_blank" rel="noreferrer" data-index="EXT" aria-label="Blog">blog</a>
+                <a href="https://github.com/armaan-io" target="_blank" rel="noreferrer" data-index="EXT" aria-label="Projects">projects</a>
+                <a href="#about" data-index="01" aria-label="About">about</a>
+                <a href="#contact" data-index="02" aria-label="Contact">contact</a>
             </div>
         </nav>
 
         <header class="hero">
-            <div class="hero-text">
-                <h1 style="white-space: nowrap;">
-                    <span class="name-eng">Armaan</span>
-                    <span class="slash">/</span>
-                    <span class="name-pbi">ਅਰਮਾਨ</span>
-                </h1>
+            <div class="hero-kicker" aria-label="Location and local time">
+                <span>Punjab</span>
+                <span id="punjab-clock" aria-live="polite">--:--:-- IST</span>
             </div>
+
+            <h1 class="name-switch" tabindex="0" aria-label="Armaan / ਅਰਮਾਨ" title="Hover or focus to translate">
+                <span class="name-pbi" aria-hidden="true">ਅਰਮਾਨ</span>
+                <span class="name-eng" aria-hidden="true">Armaan</span>
+            </h1>
+
+            <figure class="hero-portrait">
+                <img src="images/WhatsApp Image 2026-07-24 at 10.53.00 PM (2).jpeg" alt="Portrait of Armaan wearing a turban">
+            </figure>
+
+            <aside class="hero-carousel" aria-label="Current interests">
+                <span class="hero-carousel-label">Current interests</span>
+                <ol class="hero-carousel-list" aria-hidden="true"></ol>
+            </aside>
         </header>
 
-        <section id="about">
-            <h4>A jack of many trades.</h4>
-            <p>
-                I love physics, photography, programming, cars & playing guitar among other things. Recently I got into writing and astronomy.
-                Most of all, I love learning and getting into new things. You can always find me with a new hobby/interest and a load of enthusiasm.
-            </p>
+        <section id="about" class="editorial-section">
+            <article class="about-copy">
+                <span class="section-number">01 / about</span>
+                <h4>Many interests, one thread: curiosity.</h4>
+                <p>
+                    I tend to learn by getting my hands involved first. I’ll follow an interest for a while, drift toward something else, then come back with a different way of seeing it. It took me some time to stop treating that movement as a lack of focus. I have started to see it as part of how I work.
+                </p>
+                <p>
+                    I keep finding that ideas travel well. Something learned in one kind of practice can quietly change how I approach another, often in ways that are hard to predict at the start. The more experiences I collect, the more connections I notice between them, and the easier it becomes to find a useful next step. I like that the process stays open: there is always another question, another angle, or something worth trying with my hands.
+                </p>
+            </article>
+
         </section>
 
-        <section id="contact">
-            <h1>Contact</h1>
-            <p>Reach out or connect with me through my socials or mail.</p>
+        <section id="contact" class="editorial-section">
+            <span class="section-number">02 / contact</span>
+            <h1>Correspondence</h1>
+            <p>Reach out for projects, notes, questions, or quiet internet friendship.</p>
 
             <div class="contact-links">
-                <a href="https://github.com/armaan-io" target="_blank">GitHub ↗</a>
+                <a href="https://github.com/armaan-io" target="_blank" rel="noreferrer">GitHub ↗</a>
                 <a href="#" class="copy-discord" data-username="armaan.here">Discord ↗</a>
-                <a href="https://signal.me/#eu/qZHc09ibRTwwmmvVfJ84-uPQOiO0aetsPtoDW51iQO2dHFQgkiFGAZJDTSWYFmzX" target="_blank">Signal ↗</a>
-                <a href="mailto:social.myth624@simplelogin.fr" target="_blank">Mail ↗</a>
+                <a href="https://signal.me/#eu/qZHc09ibRTwwmmvVfJ84-uPQOiO0aetsPtoDW51iQO2dHFQgkiFGAZJDTSWYFmzX" target="_blank" rel="noreferrer">Signal ↗</a>
+                <a href="mailto:social.myth624@simplelogin.fr" target="_blank" rel="noreferrer">Mail ↗</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <div>
-            <p>Hack Club ysws</p>
-        </div>
+        <span>Armaan</span>
+        <span>&copy; 2026</span>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=25"></script>
 </body>
 </html>
