@@ -240,8 +240,7 @@ nav {
 }
 
 .hero-kicker,
-.section-number,
-.interest-list {
+.section-number {
     color: var(--color-text-muted);
     font-size: clamp(0.74rem, 0.88vw, 0.9rem);
     font-style: italic;
@@ -354,64 +353,6 @@ nav {
     width: 100%;
 }
 
-.hero-carousel {
-    align-self: start;
-    color: var(--color-text);
-    grid-column: 10 / 13;
-    grid-row: 2;
-    margin-top: clamp(1rem, 3vh, 2.5rem);
-    min-height: 34rem;
-    overflow: hidden;
-    perspective: 740px;
-    position: relative;
-    user-select: none;
-    z-index: 4;
-}
-
-.hero-carousel-label {
-    color: var(--color-text-muted);
-    display: block;
-    font-size: clamp(0.74rem, 0.88vw, 0.9rem);
-    font-style: italic;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.hero-carousel-list {
-    height: 31rem;
-    list-style: none;
-    margin: 1.3rem 0 0;
-    mask-image: linear-gradient(transparent, black 12%, black 88%, transparent);
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    transform-style: preserve-3d;
-}
-
-.hero-carousel-item {
-    color: color-mix(in srgb, var(--color-text) calc(100% - (var(--carousel-distance) * 17%)), var(--color-text-muted));
-    left: 0;
-    line-height: 1;
-    opacity: max(0, calc(1 - (var(--carousel-distance) * 0.18)));
-    padding: 0.52rem 0;
-    position: absolute;
-    right: 0;
-    top: calc(50% - 1.85rem);
-    transform:
-        translateY(calc(var(--carousel-offset) * 4.35rem))
-        rotateX(calc(var(--carousel-offset) * -10deg))
-        translateZ(calc(var(--carousel-distance) * -36px))
-        scale(calc(1 - (var(--carousel-distance) * 0.03)));
-    transform-origin: center center;
-    transition: color 180ms ease, opacity 180ms ease, filter 180ms ease;
-    z-index: var(--carousel-z-index);
-}
-
-.hero-carousel-item span {
-    filter: blur(calc(var(--carousel-distance) * 0.012em));
-    font-size: clamp(1.25rem, 2.2vw, 2.4rem);
-}
-
 .editorial-section {
     border-top: 1px solid var(--color-rule);
     display: grid;
@@ -453,28 +394,6 @@ nav {
 
 .about-copy p + p {
     margin-top: 1rem;
-}
-
-.interest-panel {
-    align-self: end;
-    grid-column: 9 / 12;
-}
-
-.interest-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem 1rem;
-    list-style: none;
-    margin-top: 0.8rem;
-}
-
-.interest-list li::after {
-    content: '/';
-    margin-left: 1rem;
-}
-
-.interest-list li:last-child::after {
-    content: '';
 }
 
 #contact h1 {
@@ -592,9 +511,7 @@ footer {
     .hero-kicker,
     .name-switch,
     .hero-portrait,
-    .hero-carousel,
     .about-copy,
-    .interest-panel,
     #contact > .section-number,
     #contact h1,
     #contact p,
@@ -630,18 +547,6 @@ footer {
     .hero-portrait {
         min-height: 18rem;
         width: min(20rem, 82vw);
-    }
-
-    .hero-carousel {
-        background: var(--color-panel);
-        margin: 2rem -1rem 0;
-        min-height: 29rem;
-        padding: 2rem 1rem 5rem;
-    }
-
-    .hero-carousel-list {
-        height: 26rem;
-        margin-top: 1.3rem;
     }
 
     footer {

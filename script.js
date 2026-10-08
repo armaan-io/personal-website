@@ -1,14 +1,9 @@
 /* script.js */
 
-const siteContent = {
-    interests: ['physics', 'code', 'photography', 'guitar', 'cars', 'astronomy', 'writing', 'learning'],
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     const menu = document.getElementById('mobile-menu');
     const links = document.querySelector('.page-links');
     const nameSwitch = document.querySelector('.name-switch');
-    const heroCarouselList = document.querySelector('.hero-carousel-list');
     const punjabClock = document.getElementById('punjab-clock');
     const themeToggle = document.querySelector('.theme-toggle');
 
@@ -39,44 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!root.dataset.theme) updateThemeToggle();
         });
         updateThemeToggle();
-    }
-
-    if (heroCarouselList) {
-        const copies = 3;
-        let scrollPosition = siteContent.interests.length + 2;
-
-        heroCarouselList.innerHTML = Array.from(
-            { length: siteContent.interests.length * copies },
-            (_, virtualIndex) => `<li class="hero-carousel-item"><span>${siteContent.interests[virtualIndex % siteContent.interests.length]}</span></li>`,
-        ).join('');
-
-        const carouselItems = [...heroCarouselList.querySelectorAll('.hero-carousel-item')];
-        const updateCarousel = () => {
-            carouselItems.forEach((item, index) => {
-                const offset = index - scrollPosition;
-                const distance = Math.abs(offset);
-                item.style.setProperty('--carousel-offset', offset.toFixed(3));
-                item.style.setProperty('--carousel-distance', distance.toFixed(3));
-                item.style.setProperty('--carousel-z-index', Math.round(20 - distance));
-            });
-        };
-
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        let lastTimestamp;
-        const animateCarousel = (timestamp) => {
-            if (lastTimestamp === undefined) lastTimestamp = timestamp;
-            const elapsedSeconds = (timestamp - lastTimestamp) / 1000;
-            lastTimestamp = timestamp;
-            scrollPosition += elapsedSeconds * 0.34;
-            if (scrollPosition >= siteContent.interests.length * 2) {
-                scrollPosition -= siteContent.interests.length;
-            }
-            updateCarousel();
-            window.requestAnimationFrame(animateCarousel);
-        };
-
-        updateCarousel();
-        if (!motionQuery.matches) window.requestAnimationFrame(animateCarousel);
     }
 
     if (menu && links) {
